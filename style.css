@@ -161,7 +161,7 @@ a {
 #leftofabout {
     height: 400px;
     width: 400px;
-    background-image: url(profile.png);
+    background-image: url(images/profile.png);
     background-size: cover;
     border: 4px solid rgb(158, 43, 43);
     border-radius: 50%;
