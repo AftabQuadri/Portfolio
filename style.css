@@ -1,0 +1,932 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgb(17, 24, 40);
+}
+
+#box {
+    background-color: rgb(17, 24, 40);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
+}
+
+#innerbox1 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    left: 20px;
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    font-size: 18px;
+    width: 100%;
+    background-color: rgb(3, 6, 23);
+    color: white;
+    position: fixed;
+    top: 0px;
+}
+
+.navbarDark a {
+    color: aliceblue;
+}
+
+.navbarDark #name {
+    color: aliceblue;
+    transition: color 1.5s ease-in-out;
+}
+
+li a {
+    position: relative;
+}
+
+li a::after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    width: 0;
+    height: 5px;
+    background-color: transparent;
+    transition: width 0.5s ease;
+}
+
+
+#x {
+    display: none;
+}
+
+li a:hover::after {
+    width: 100%;
+    background-color: red;
+}
+
+ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+}
+
+li {
+    list-style: none;
+    padding: 5px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#name {
+    margin-left: 20px;
+    font-size: 35px;
+    color: black;
+}
+
+.middleName {
+    color: red;
+}
+
+
+#java {
+    color: red;
+}
+
+#innerbox2 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: start;
+    padding: 20px;
+    margin-left: 150px;
+    /* margin-top: 60px; */
+
+}
+
+#innerbox2 button {
+    margin-top: 50px;
+
+}
+
+
+
+#social_links {
+    display: flex;
+    justify-content: space-around;
+    width: 100vh;
+    height: 30px;
+    padding: 5px;
+}
+
+
+#subbox {
+    margin-top: 60px;
+    display: flex;
+    /* border: 2px solid black; */
+    height: 100vh;
+    width: 100vw;
+
+}
+
+#about {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(17, 24, 40);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#leftofabout {
+    height: 400px;
+    width: 400px;
+    background-image: url(profile.png);
+    background-size: cover;
+    border: 4px solid rgb(158, 43, 43);
+    border-radius: 50%;
+    margin-left: 50px;
+
+}
+
+#leftofabout:hover {
+    border: 4px solid red;
+}
+
+#rightofabout {
+    width: 60%;
+    padding-left: 50px;
+    padding-right: 100px;
+    margin-top: 70px;
+}
+
+.skill ul {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.skill li a {
+    color: gray;
+    font-size: 18px;
+    position: relative;
+}
+
+.skills {
+    height: 200px;
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    line-height: 1.5;
+
+}
+
+.technicalskills {
+    /* background-color: aqua; */
+    height: 100%;
+    width: 100%;
+
+}
+
+.softSkills {
+    height: 100%;
+    width: 100%;
+    display: none;
+
+}
+
+.education {
+    height: 100%;
+    width: 100%;
+    display: none;
+
+}
+
+.skills h2 {
+    font-size: 20px;
+    color: rgb(158, 43, 43);
+    font-family: sans-serif;
+
+}
+
+.skills p {
+    color: white;
+    font-family: sans-serif;
+    font-size: 17px;
+
+}
+
+.softSkills h2 {
+    font-size: 18px;
+}
+
+.softSkills p {
+    font-size: 15px;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-weight: 700;
+    color: white;
+    font-size: 50px;
+    line-height: 1.4;
+}
+
+p {
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: yellow;
+    text-align: start;
+}
+
+.myDescription {
+    color: gray;
+}
+
+.skill {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2px;
+}
+
+button {
+    margin-top: 10px;
+    /* width: 200px; */
+    height: 50px;
+    border: 2px solid wheat;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+}
+
+button:hover {
+    color: red;
+    border: 2px solid red;
+}
+
+#btndiv {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#contact {
+    height: 100vh;
+    width: 100%;
+    /* background-color: grey; */
+    /* border: 2px solid black;  */
+    /* display: flex; */
+    align-items: center;
+    justify-content: space-between;
+}
+
+#contactinnerdiv {
+    height: 95%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#contactinnerdiv h1 {
+    font-size: 45px;
+    color: gray;
+    margin-left: 50px;
+    font-family: sans-serif;
+    font-weight: 700;
+
+}
+
+#contact a {
+    text-decoration: none;
+    color: red;
+}
+
+#contact a:hover {
+    text-decoration: none;
+    color: blueviolet;
+}
+
+#work {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    background-color: rgb(17, 24, 40);
+
+}
+
+#insidework {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.insidework {
+    height: 250px;
+    width: 450px;
+    background-color: aqua;
+    /* border: 1px solid wheat; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.insidework:hover {
+    border: 2px solid yellow;
+}
+
+.logoAndText {
+    height: 180px;
+    width: 100%;
+    /* background-color: red; */
+    margin-bottom: 0px;
+    display: flex;
+}
+
+.projectLink {
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.projectLink button {
+    padding: 15px;
+    border: 2px solid red;
+    color: black;
+    background-color: violet;
+}
+
+.projectLink button:active {
+    border-color: green;
+}
+
+.projectlogo {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.projectText {
+    margin-left: 30px;
+    flex: 1;
+    margin-top: 5px;
+    margin-right: 20px;
+}
+
+.projectTitle h1 {
+    font-size: 25px;
+    color: black;
+}
+
+.aboutProject p {
+    font-size: 18px;
+    color: gray;
+    margin-top: 10px;
+}
+
+#weather_logo {
+    background-image: url(images/weather-forecast.png);
+    background-size: contain;
+}
+
+#notes_logo {
+    background-image: url(images/sticky-note-148284_640.png);
+    background-size: cover;
+}
+
+#waste_logo {
+    background-image: url(images/can-310883_640.png);
+    background-size: cover;
+}
+
+hr {
+    background-color: aliceblue;
+    height: 1px;
+    width: 100vw;
+}
+
+.footer {
+    height: 100px;
+    width: 100vw;
+    background-color: rgb(3, 6, 23);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer p {
+    color: white;
+}
+
+.form {
+    margin-right: 50px;
+}
+#or{
+    display: none;
+}
+.formEl {
+    width: 600px;
+    border: 2px solid yellow;
+    margin-top: 10px;
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.formEl:hover,
+.formEl:active {
+    border: 2px solid red;
+}
+
+.formSubmit {
+    margin-top: 10px;
+    width: 200px;
+    height: 50px;
+    border: 2px solid wheat;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+}
+
+.formSubmit:hover {
+    border: 2px solid red;
+}
+
+.formSubmit:active {
+    border: 2px solid green;
+}
+
+
+#middleName {
+    color: yellow;
+    font-size: 100px;
+}
+
+#bars {
+    display: none;
+}
+
+@media(min-width:300px) and (max-width:600px) {
+    * {
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: rgb(17, 24, 40);
+    }
+
+    #box {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+/* 
+    #innerbox1 {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        left: 20px;
+        background-color: rebeccapurple ;
+    } */
+
+    #name {
+        display: none;
+        /* Hide the name in navbar */
+    }
+
+    #bars {
+        display: block;
+        /* Show the bars icon for mobile menu */
+    }
+
+    nav {
+        height: 30px;
+        width: 100%;
+        /* Auto height for mobile navigation */
+    }
+
+    nav ul {
+        display: none;
+        /* Hide navigation links by default */
+        position: absolute;
+        right: 0px;
+        /* Initially hide the navigation bar */
+        top: 0px;
+        width: 150px;
+        height: 100vh;
+        /* Set the width when it's open */
+        background-color: rgb(3, 6, 23);
+        transition: right 0.5s ease;
+        /* Apply transition effect */
+    }
+
+    nav ul.show {
+        display: block;
+        /* Display the navigation links when the bar is open */
+    }
+
+    nav li {
+        margin-right: 0;
+    }
+    li a:hover::after {
+    width: 0;
+}
+
+    #navbar #x {
+        display: block;
+        /* Show close button for mobile menu */
+        font-size: 15px;
+    }
+    #box{
+        height: 100%;
+        width: 100%;
+    }
+    #innerbox2 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: start;
+    padding: 10px;
+    margin-left: 10px;
+    overflow-x: hidden;
+    /* margin-top: 60px; */
+}
+#innerbox2 h1{
+    font-size: 15px;
+}
+#middleName{
+    font-size: 20px;
+}
+.formSubmit{
+    width: 100px;
+    height: 25px;
+    font-size: 8px;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+#innerbox2 button {
+    margin-top: 10px;
+}
+
+#subbox {
+    margin-top: 30px;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+#about {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(17, 24, 40);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#leftofabout {
+    height: 200px;
+    width: 200px;
+    background-image: url(profile.png);
+    background-size: cover;
+    border: 2px solid rgb(158, 43, 43);
+    border-radius: 50%;
+    margin-left: 50px;
+
+}
+
+#leftofabout:hover {
+    border: 2px solid red;
+}
+
+#rightofabout {
+    width: 60%;
+    padding-left: 25px;
+    padding-right: 50px;
+    margin-top: 30px;
+}
+
+.skill ul {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.skill li a {
+    color: gray;
+    font-size: 12px;
+    position: relative;
+}
+
+.skills {
+    height: 400px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    line-height: 1.5;
+
+}
+
+
+#innerbox2 button {
+    margin-top: 20px;
+
+}
+#about{
+    display: inline-block;
+}
+#aboutMyExperience{
+    display: none;
+}
+#rightofabout p{
+    font-size: 10px;
+}
+#rightofabout h1{
+    font-size: 12px;
+}
+.skill {
+    height: 50px;
+    width:400px;
+}
+.skills h2{
+    font-size: 12px;
+
+}
+
+.skills p{
+    font-size: 10px;
+    
+}
+#work {
+    height: 100vh;
+    width: 100vw;
+    display: inline-block;
+    align-items: center;
+    background-color: rgb(17, 24, 40);
+
+}
+
+#insidework {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.insidework {
+    height: 180px;
+    width: 300px;
+    background-color: aqua;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logoAndText {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectLink {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.projectLink button {
+    padding: 2px;
+    width: 100px;
+    border: 1px solid red;
+    color: black;
+    background-color: violet;
+}
+
+.projectLink button:active {
+    border-color: green;
+}
+
+.projectlogo {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.projectText {
+    flex: 1;
+    margin-top: 5px;
+    margin-right: 20px;
+}
+
+.projectTitle h1 {
+    font-size: 15px;
+    color: black;
+}
+
+.aboutProject p {
+    font-size: 12px;
+    color: gray;
+    margin-top: 5px;
+}
+
+#weather_logo {
+    background-image: url(images/weather-forecast.png);
+    background-size: cover;
+}
+
+#notes_logo {
+    background-image: url(images/sticky-note-148284_640.png);
+    background-size: cover;
+}
+
+#waste_logo {
+    background-image: url(images/can-310883_640.png);
+    background-size: cover;
+}
+
+hr {
+    background-color: aliceblue;
+    height: 1px;
+    width: 100%;
+}
+
+.insidework:hover {
+    border: 2px solid yellow;
+}
+.contactinnerdivText h1{
+    font-size: 15px;
+}
+
+button {
+    margin-top: 5px;
+    /* width: 200px; */
+    height: 25px;
+    border: 2px solid wheat;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+}
+
+button:hover {
+    color: red;
+    border: 2px solid red;
+}
+
+#btndiv {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#contact {
+    height: 100vh;
+    width: 100%;
+    /* background-color: grey; */
+    /* border: 2px solid black;  */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#contactSection{
+    overflow-x: hidden;
+}
+#contactinnerdiv {
+    height: 95%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contactinnerdiv h1 {
+    font-size: 20px;
+    color: gray;
+    margin-left: 15px;
+    font-family: sans-serif;
+    font-weight: 700;
+
+}
+#or{
+    display: block;
+}
+
+#contact a {
+    text-decoration: none;
+    color: red;
+}
+
+#contact a:hover {
+    text-decoration: none;
+    color: blueviolet;
+}
+#social_links{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer {
+    height: 35px;
+    width: 100%;
+    background-color: rgb(3, 6, 23);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.footer p {
+    color: white;
+    font-size: 15px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 35px;
+}
+
+.formEl {
+    width: 300px;
+    border: 2px solid yellow;
+    margin-top: 10px;
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    align-self: center;
+}
+
+.formEl:hover,
+.formEl:active {
+    border: 2px solid red;
+}
+
+.formSubmit {
+    margin-top: 10px;
+    width: 200px;
+    height: 50px;
+    border: 2px solid wheat;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+}
+
+.formSubmit:hover {
+    border: 2px solid red;
+}
+
+.formSubmit:active {
+    border: 2px solid green;
+}
+}
