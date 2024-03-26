@@ -1,0 +1,526 @@
+@media(max-width:600px) {
+    * {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        width: 100%;
+        background-color: rgb(17, 24, 40);
+    }
+
+    #box {
+        display: flex;
+        flex-direction: column;
+        height: 100vw;
+        width: 100%;
+    }
+
+
+    #name {
+        display: none;
+    }
+
+    #bars {
+        display: block;
+        margin-right: 7px;
+    }
+
+
+    nav {
+        height: 30px;
+        width: 100vw;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    #nav_ul {
+
+        position: fixed;
+        width: 120px;
+        height: 200px;
+        right: -120px;
+        top: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-color: rgb(3, 6, 23);
+        transition: right 0.5s ease;
+    }
+
+    nav li {
+        font-size: 15px;
+    }
+
+    
+
+    li a {
+        position: relative;
+        font-size: 15px;
+    }
+
+    li a::after {
+        content: '';
+        position: absolute;
+        bottom: -7px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: transparent;
+        transition: width 0.5s ease;
+    }
+
+
+
+    li a:hover::after {
+        width: 100%;
+        background-color: red;
+    }
+    /* to prevent the red underline coming under x mark */
+    li#x a::after {
+        content: ''; 
+        position: absolute;
+        bottom: -7px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: transparent;
+        transition: width 0.5s ease;
+    }
+    
+    li#x a:hover::after {
+        width: 0;
+    }
+    /* done */
+    li {
+        list-style: none;
+        overflow: hidden;
+    }
+
+
+
+    #x {
+        display: block;
+        font-size: 25px;
+    }
+
+    #box {
+        height: 100%;
+        width: 100%;
+    }
+
+    #innerbox2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        color: rgba(0, 0, 0, 0.7);
+        text-align: start;
+        padding: 10px;
+        margin-left: 10px;
+        overflow-x: hidden;
+        /* margin-top: 60px; */
+    }
+
+    #innerbox2 h1 {
+        font-size: 17px;
+    }
+
+    #middleName {
+        font-size: 20px;
+    }
+
+    .formSubmit {
+        width: 100px;
+        height: 25px;
+        font-size: 10px;
+        font-weight: bold;
+        border-radius: 3px;
+        padding: 0px;
+    }
+
+    #innerbox2 button {
+        margin-top: 10px;
+    }
+
+    #subbox {
+        margin-top: 30px;
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    #about {
+        height: 100vh;
+        width: 100vw;
+        background-color: rgb(17, 24, 40);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #leftofabout {
+        height: 250px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    #profileDiv:hover {
+        border: 2px solid red;
+    }
+
+    #profileDiv {
+        height: 200px;
+        width: 200px;
+        border: 2px solid rgb(158, 43, 43);
+        background-image: url(images/profile.png);
+        background-size: cover;
+        border-radius: 50%;
+
+    }
+
+    #leftofabout:hover {
+        border: 2px solid red;
+    }
+
+    #rightofabout {
+        width: 70%;
+        padding-left: 25px;
+        margin-top: 0;
+    }
+
+    #rightofabout h1 {
+        margin-bottom: 0;
+    }
+
+    .skill ul {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 0;
+    }
+
+    .skill li a {
+        color: gray;
+        font-size: 12px;
+        position: relative;
+    }
+
+    .skills {
+        width: 320px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10px;
+        line-height: 1.5;
+
+    }
+
+
+    #innerbox2 button {
+        margin-top: 20px;
+
+    }
+
+    #about {
+        display: inline-block;
+    }
+
+    #aboutMyExperience {
+        display: block;
+        width: 320px;
+    }
+
+    .myDescription {
+        width: 320px;
+        margin-top: 5px;
+    }
+
+    #rightofabout p {
+        font-size: 10px;
+    }
+
+    #rightofabout h1 {
+        font-size: 12px;
+    }
+
+    .skill {
+        height: 30px;
+        width: 400px;
+    }
+
+    .skills h2 {
+        font-size: 12px;
+
+    }
+
+    .skills p {
+        font-size: 10px;
+
+    }
+
+    #work {
+        height: 100vh;
+        width: 100vw;
+        display: inline-block;
+        align-items: center;
+        background-color: rgb(17, 24, 40);
+
+    }
+
+    #insidework {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .insidework {
+        height: 180px;
+        width: 300px;
+        background-color: aqua;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .logoAndText {
+        height: 130px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .projectLink {
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+
+    .projectLink button {
+        padding: 2px;
+        height: 30px;
+        width: 100px;
+        border: 1px solid red;
+        color: black;
+        background-color: violet;
+    }
+
+    .projectLink button:active {
+        border-color: green;
+    }
+
+    .projectlogo {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: 2px solid black;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+
+    .projectText {
+        flex: 1;
+        margin-top: 5px;
+        margin-right: 20px;
+    }
+
+    .projectTitle h1 {
+        font-size: 15px;
+        color: black;
+    }
+
+    .aboutProject p {
+        font-size: 12px;
+        color: gray;
+        margin-top: 5px;
+    }
+
+    #weather_logo {
+        background-image: url(images/weather-forecast.png);
+        background-size: cover;
+    }
+
+    #notes_logo {
+        background-image: url(images/sticky-note-148284_640.png);
+        background-size: cover;
+    }
+
+    #waste_logo {
+        background-image: url(images/can-310883_640.png);
+        background-size: cover;
+    }
+
+    hr {
+        background-color: aliceblue;
+        height: 1px;
+        width: 100%;
+    }
+
+    .insidework:hover {
+        border: 2px solid yellow;
+    }
+
+
+    .contactinnerdivText h1 {
+        font-size: 15px;
+    }
+
+    button {
+        margin-top: 5px;
+        /* width: 200px; */
+        height: 25px;
+        border: 2px solid wheat;
+        border-radius: 5px;
+        background-color: transparent;
+        color: white;
+        font-weight: bold;
+    }
+
+    button:hover {
+        color: red;
+        border: 2px solid red;
+    }
+
+    #btndiv {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    #contact {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #contactinnerdiv {
+        margin-top: 20px;
+        height: 90%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #contactinnerdiv h1 {
+        font-size: 20px;
+        color: gray;
+        margin-left: 15px;
+        font-family: sans-serif;
+        font-weight: 700;
+
+    }
+
+    #or {
+        display: block;
+    }
+
+    #contact a {
+        text-decoration: none;
+        color: red;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 35px;
+    }
+
+    .formEl {
+        width: 250px;
+        height: 30px;
+        border: 2px solid yellow;
+        margin-top: 10px;
+        padding: 7px;
+        font-size: 18px;
+        border-radius: 5px;
+        align-self: center;
+    }
+
+    .formEl:hover,
+    .formEl:active {
+        border: 2px solid red;
+    }
+
+    .formSubmit {
+        margin-top: 10px;
+        width: 150px;
+        height: 30px;
+        border: 2px solid wheat;
+        border-radius: 5px;
+        background-color: transparent;
+        color: white;
+    }
+
+    .formSubmit:hover {
+        border: 2px solid red;
+    }
+
+    .formSubmit:active {
+        border: 2px solid green;
+    }
+
+    #yourMessage {
+        height: 200px;
+    }
+
+    #contact a:hover {
+        text-decoration: none;
+        color: blueviolet;
+    }
+
+    #social_links {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+    }
+
+    .social {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 0;
+        padding-bottom: 0;
+
+    }
+
+    .footer {
+        height: 35px;
+        width: 100%;
+        background-color: rgb(3, 6, 23);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    .footer p {
+        color: white;
+        font-size: 15px;
+    }
+
+}
