@@ -45,8 +45,6 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// Define the text to be displayed dynamically
-// Define the text to be displayed dynamically
 const textParts = [
     { text: " I am a ", color: "#ffffff" },
     { text: "Java", color: "#ff0000" },
@@ -55,10 +53,8 @@ const textParts = [
     { text: " developer.", color: "#ffffff" }
 ];
 
-// Get the element where you want to display the text
 const dynamicTextElement = document.getElementById("dynamicText");
 
-// Function to display text with each letter appearing after a delay
 function displayDynamicText(parts, delay) {
     let index = 0;
     const intervalId = setInterval(() => {
@@ -79,8 +75,5 @@ function displayDynamicText(parts, delay) {
     }, delay);
 }
 
-// Delay (in milliseconds) between each letter
-const delay = 1000; // Adjust as needed
-
-// Call the function to display the text dynamically
+const delay = 1000; 
 displayDynamicText(textParts, delay);
