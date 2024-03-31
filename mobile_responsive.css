@@ -193,10 +193,6 @@
 
     }
 
-    #leftofabout:hover {
-        border: 2px solid red;
-    }
-
     #rightofabout {
         width: 70%;
         padding-left: 25px;
