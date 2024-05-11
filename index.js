@@ -48,8 +48,6 @@ document.addEventListener('click', function(event) {
 const textParts = [
     { text: "and I am a", color: "#ffffff" },
     { text: " Java", color: "#ff0000" },
-    { text: " and ", color: "#ffffff" },
-    { text: "Frontend", color: "#ff0000" },
     { text: " developer.", color: "#ffffff" }
 ];
 
