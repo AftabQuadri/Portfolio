@@ -393,17 +393,17 @@ button:hover {
 }
 
 #weather_logo {
-    background-image: url(images/weather-forecast.png);
+    background-image: url(../assets/images/weather-forecast.png);
     background-size: contain;
 }
 
 #notes_logo {
-    background-image: url(images/sticky-note-148284_640.png);
+    background-image: url(../assets/images/sticky-note-148284_640.png);
     background-size: cover;
 }
 
 #waste_logo {
-    background-image: url(images/can-310883_640.png);
+    background-image: url(../assets/images/can-310883_640.png);
     background-size: cover;
 }
 
