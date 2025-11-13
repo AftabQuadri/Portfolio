@@ -1,240 +1,1157 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Aftab Quadri - Java Dev Who Actually Enjoys This Stuff</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/mobile_responsive.css">
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --accent: #ffe66d;
+            --purple: #a8dadc;
+            --bg: #1a1a2e;
+            --bg-light: #16213e;
+            --text: #eee;
+            --text-muted: #a0a0a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Courier New', monospace;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            position: relative;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+        }
+
+        .logo::before {
+            content: '{ ';
+            color: var(--secondary);
+        }
+
+        .logo::after {
+            content: ' }';
+            color: var(--secondary);
+        }
+
+        .logo:hover {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px) rotate(-5deg); }
+            75% { transform: translateX(5px) rotate(5deg); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a::before {
+            content: '// ';
+            color: var(--primary);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover::before {
+            opacity: 1;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+            bottom: -150px;
+            left: -150px;
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, 30px) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--bg);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .typing-effect {
+            color: var(--accent);
+            border-right: 3px solid var(--accent);
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: var(--accent); }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #ff8787);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            color: var(--bg);
+            transform: translateY(-3px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::before {
+            content: '<';
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+
+        .section-title::after {
+            content: ' />';
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            transform: translateX(-100%);
+            transition: transform 0.5s;
+        }
+
+        .about-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .about-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .about-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .about-card p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .fun-fact {
+            background: rgba(255, 107, 107, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+            font-style: italic;
+        }
+
+        .fun-fact::before {
+            content: '💡 Fun Fact: ';
+            font-weight: bold;
+            color: var(--accent);
+            font-style: normal;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-box {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px dashed var(--primary);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .skill-box:hover {
+            border-style: solid;
+            transform: rotate(-2deg) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-box h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .tag {
+            background: rgba(78, 205, 196, 0.2);
+            color: var(--text);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--secondary);
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .tag:hover {
+            background: var(--secondary);
+            color: var(--bg);
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-light);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 2px solid var(--bg-light);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 40px rgba(255, 230, 109, 0.2);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-header::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.1) 10px,
+                rgba(255, 255, 255, 0.1) 20px
+            );
+        }
+
+        .project-body {
+            padding: 2rem;
+        }
+
+        .project-body h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .project-body p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-badge {
+            background: rgba(168, 218, 220, 0.2);
+            color: var(--purple);
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            border: 1px solid var(--purple);
+        }
+
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            gap: 1rem;
+            color: var(--secondary);
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            color: var(--text);
+            transform: translateX(10px);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            width: 40px;
+        }
+
+        .social-grid {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-light);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            color: var(--bg);
+            transform: rotate(360deg) scale(1.2);
+        }
+
+        .contact-form {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--primary);
+        }
+
+        .form-field {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            font-weight: bold;
+        }
+
+        .form-field label::before {
+            content: '> ';
+            color: var(--secondary);
+        }
+
+        .form-field input,
+        .form-field textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg);
+            border: 2px solid var(--bg);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-light);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            border-top: 3px solid var(--primary);
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        .heart {
+            color: var(--primary);
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--bg-light);
+                flex-direction: column;
+                padding: 5rem 2rem;
+                gap: 2rem;
+                transition: right 0.3s;
+                border-left: 3px solid var(--primary);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-grid,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem 3%;
+            }
+
+            section {
+                padding: 3rem 3%;
+            }
+
+            .hero {
+                padding: 6rem 3% 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-<style>
-
-</style>
-
 <body>
-    <div id="box">
-        <div>
-            <nav id="navbar" class="navbarDark">
-                <div id="name">
-                    <span id="surname">Sk</span><i> <span class="middleName"> Aftab</span></i> Quadri
-                </div>
-                <div id="navBarUl">
-                    <ul id="nav_ul">
-                        <li id="x" ><a onclick="closeNavBar()">&#10005;</a></li>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#work">Work</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div id="bars" onclick="openNavBar()"><i class="fa-solid fa-bars" style="color: #63E6BE;"></i></div>
+    <nav>
+        <div class="logo">Aftab.dev</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" onclick="closeNav()">Home</a></li>
+            <li><a href="#about" onclick="closeNav()">About</a></li>
+            <li><a href="#skills" onclick="closeNav()">Skills</a></li>
+            <li><a href="#projects" onclick="closeNav()">Projects</a></li>
+            <li><a href="#contact" onclick="closeNav()">Contact</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="toggleNav()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
 
-            </nav>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="hero-tag">🚀 Java Developer | Microservices Architect</span>
+            <h1>
+                Hey! I'm Aftab<br>
+                I <span class="typing-effect">build scalable backends</span>
+            </h1>
+            <p>
+                ☕ Turning caffeine into code since 2021. I'm a backend developer who genuinely enjoys 
+                architecting microservices, integrating payment gateways, and writing APIs that don't 
+                make people cry. 3+ years deep into Spring Boot, and I still get excited about a clean 
+                REST endpoint!
+            </p>
+            <div class="cta-group">
+                <a href="assets/pdf/Aftab_resume.pdf" download="Aftab_Quadri_Resume" class="btn btn-primary">
+                    <i class="fas fa-download"></i> Grab My Resume
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-comment-dots"></i> Let's Chat
+                </a>
+            </div>
         </div>
-       
-        <section id="homeSection">
-            <div id="subbox">
-                <div id="innerbox1">
-                    <div id="innerbox2">
-                        <h1 id="">
-                            Hi, my name is <br><span id="middleName">Aftab</span> <br> <span id="dynamicText"></span> <br>
-                        </h1>
-                        <a href="assets/pdf/Aftab_resume.pdf" download="Aftab_resume"><button
-                                class="formSubmit">Download Resume</button></a>
+    </section>
 
-                    </div>
-
-                </div>
-            </div>
-            <hr>
-
-        </section>
-
-    </div>
-
-     <section id="aboutSection">
-        <div id="about">
-            <div id="leftofabout">
-                <div id="profileDiv">
-                    
-                </div>
-            </div>
-            <div id="rightofabout">
-                <p>Hello, Welcome</p>
-                <h1>I am Aftab Quadri</h1>
-                <p class="myDescription">
-                    I am an aspiring and passionate
-                    Java Developer with a keen interest in Frontend development also, looking
-                    forward to create engaging and seamless user experiences, here is a bit about me.
-                    <br><p class="myDescription" id="aboutMyExperience" >I had the privilege of working for a Multinational Company for nearly two years, where I gained
-                    valuable experience in collaborating closely with cross-functional teams to address customer issues
-                    that required input from various departments, such as technical support etc, I also had the
-                    privilage to interact with a diverse client on a regular basis.
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">The human behind the semicolons 😄</p>
+        
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>Who Am I?</h3>
+                <p>
+                    I'm a Java Developer currently architecting microservices at Ohhpro Technologies. 
+                    My days involve building scalable backend systems, integrating payment gateways 
+                    (Razorpay, PayU, OnePay), and ensuring transactions don't disappear into the void. 
+                    I genuinely enjoy solving complex problems and writing clean code that doesn't make 
+                    future-me want to time travel and slap past-me.
                 </p>
-                <br>
-                <p class="myDescription">
-                <h1>My Skills</h1>
-                <div class="skill">
-                    <ul>
-                        <li onclick="displayTechnicalSkill()" class="item"><a href="#about">Technical skills</a></li>
-                        <li onclick="displaySoftSkill()" class="item"><a href="#about">Soft skills </a></li>
-                        <li onclick="displayEducation()" class="item">
-                            <a href="#about"> Education</a>
-                        </li>
-                    </ul>
+            </div>
+            
+            <div class="about-card">
+                <h3>What I Do Best</h3>
+                <p>
+                    I specialize in Spring Boot microservices, RESTful APIs, and JWT authentication. 
+                    I've architected payment modules using Factory and Adapter patterns, implemented 
+                    OAuth 2.0 flows, and built healthcare platforms with role-based access control. 
+                    Basically, if it needs a robust backend and some security magic, I'm your guy!
+                </p>
+            </div>
+            
+            <div class="about-card">
+                <h3>My Journey</h3>
+                <p>
+                    Started at Tech Mahindra as a Subject Matter Expert (fancy title for "the person who 
+                    fixes things"), then dove deep into Java development at Sanemi Technologies working 
+                    with Spring Batch and legacy system migrations. Now at Ohhpro, I'm building 
+                    enterprise-grade society management systems with multiple interconnected microservices.
+                </p>
+            </div>
+            
+            <div class="about-card">
+                <h3>Beyond Code</h3>
+                <p>
+                    When I'm not hunting bugs or debating with Spring Boot configurations, I enjoy 
+                    exploring new technologies, contributing to meaningful projects, and staying updated 
+                    with industry trends. I believe in writing code that's not just functional, but also 
+                    maintainable and scalable. Also, I make a mean cup of chai ☕
+                </p>
+            </div>
+        </div>
+
+        <div class="fun-fact">
+            I once spent 3 hours debugging a microservice only to realize I was testing the wrong endpoint. 
+            But hey, the one I was accidentally fixing works flawlessly now! Sometimes the best debugging 
+            happens by accident 🤷‍♂️
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Tech Arsenal</h2>
+        <p class="section-subtitle">Tools I use to architect scalable solutions 🛠️</p>
+        
+        <div class="skills-grid">
+            <div class="skill-box">
+                <h3><i class="fas fa-code"></i> Backend Architecture</h3>
+                <div class="skill-tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">Spring Boot</span>
+                    <span class="tag">Spring Security</span>
+                    <span class="tag">Hibernate</span>
+                    <span class="tag">Spring Data JPA</span>
+                    <span class="tag">Spring Batch</span>
+                    <span class="tag">Microservices</span>
                 </div>
-                <div class="skills">
-                    <div class="technicalskills">
-                        <h2>Frontend development</h2>
-                        <p>HTML | CSS | JS</p>
-                        <h2>Backend development</h2>
-                        <p>Java | J2EE </p>
-                        <h2>Frameworks and tools</h2>
-                        <p>Spring Core | Spring Boot | Hibernate | Eclipse | VS Code</p>
-                    </div>
-                    <div class="softSkills">
-                        <h2>Adaptability</h2>
-                        <p>Adept at adapting to dynamic environments while maintaining productivity and composure.</p>
-                        <h2>Problem solving </h2>
-                        <p>Skilled in problem identification, root cause analysis, and implementing effective solutions
-                            to enhance processes.
-                        </p>
-                        <h2>Collaboration</h2>
-                        <p>Effective team player, valuing diverse perspectives to achieve common goals collaboratively.
-                            .</p>
-                        <h2>Time Management</h2>
-                        <p>Efficient at task prioritization, scheduling, and meeting deadlines, optimizing workflow and
-                            resource usage.</p>
-                    </div>
-                    <div class="education">
-                        <h2>B.Tech</h2>
-                        <p>B.Tech in Electronics and Communication Engineering from Nalanda Institute of Technology,
-                            BBSR</p>
-                        <h2>Intermediate</h2>
-                        <p>Bhadrak Junior College, Bhadrak</p>
-                        <h2>School</h2>
-                        <p>Zilla School, Bhadrak</p>
-                    </div>
+            </div>
+            
+            <div class="skill-box">
+                <h3><i class="fas fa-server"></i> APIs & Security</h3>
+                <div class="skill-tags">
+                    <span class="tag">RESTful APIs</span>
+                    <span class="tag">JWT</span>
+                    <span class="tag">OAuth 2.0</span>
+                    <span class="tag">API Gateway</span>
+                    <span class="tag">Load Balancer</span>
+                    <span class="tag">Swagger</span>
+                    <span class="tag">Postman</span>
+                </div>
+            </div>
+            
+            <div class="skill-box">
+                <h3><i class="fas fa-dollar-sign"></i> Payment Integration</h3>
+                <div class="skill-tags">
+                    <span class="tag">Razorpay</span>
+                    <span class="tag">PayU</span>
+                    <span class="tag">OnePay</span>
+                    <span class="tag">Webhooks</span>
+                    <span class="tag">FCM</span>
+                    <span class="tag">Design Patterns</span>
+                </div>
+            </div>
+            
+            <div class="skill-box">
+                <h3><i class="fas fa-database"></i> Database & ORM</h3>
+                <div class="skill-tags">
+                    <span class="tag">SQL</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">JPA</span>
+                    <span class="tag">Hibernate</span>
+                </div>
+            </div>
+            
+            <div class="skill-box">
+                <h3><i class="fas fa-tools"></i> DevOps & Tools</h3>
+                <div class="skill-tags">
+                    <span class="tag">Git</span>
+                    <span class="tag">Jenkins</span>
+                    <span class="tag">Maven</span>
+                    <span class="tag">Gradle</span>
+                    <span class="tag">Tomcat</span>
+                    <span class="tag">Bitbucket</span>
+                </div>
+            </div>
+            
+            <div class="skill-box">
+                <h3><i class="fas fa-palette"></i> Frontend (When Needed)</h3>
+                <div class="skill-tags">
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Bootstrap</span>
                 </div>
             </div>
         </div>
     </section>
-    <hr>
-    <section id="projectSection">
-        <div id="work">
 
-            <div id="insidework">
-                <div id="firstproject" class="insidework ">
-                    <div class="logoAndText">
-                        <div class="projectlogo" id="waste_logo"></div>
-                        <div class="projectText">
-                            <div class="projectTitle">
-                                <h1>Waste management website</h1>
-                            </div>
-                            <div class="aboutProject">
-                                <p>The website connects people who want to give away items they no longer need with
-                                    those who are looking for them.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="projectLink">
-                        <a href="https://github.com/AftabQuadri/Wastemanagement"><button>GitHub Link</button></a>
-                    </div>
+    <section id="projects">
+        <h2 class="section-title">Production Projects</h2>
+        <p class="section-subtitle">Enterprise solutions I've architected and shipped 💻</p>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <i class="fas fa-building"></i>
                 </div>
-                <div id="secondproject" class="insidework ">
-                    <div class="logoAndText">
-                        <div class="projectlogo" id="weather_logo"></div>
-                        <div class="projectText">
-                            <div class="projectTitle">
-                                <h1>Weather App</h1>
-                            </div>
-                            <div class="aboutProject">
-                                <p>The web app, built with HTML, CSS, JavaScript, and Java, utilizes an API to display
-                                    real-time weather information for any chosen area or city.</p>
-                            </div>
-                        </div>
+                <div class="project-body">
+                    <h3>Ohhpro Society Manager</h3>
+                    <p>
+                        Complete microservices ecosystem for society management. Architected the payment 
+                        gateway module supporting Razorpay, PayU, and OnePay using Factory and Adapter 
+                        patterns. Built Junction, Signaller (security guard app), and integrated with 
+                        Superadmin for centralized control. Currently handling real transactions for 
+                        multiple societies.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Spring Boot</span>
+                        <span class="tech-badge">Microservices</span>
+                        <span class="tech-badge">Razorpay</span>
+                        <span class="tech-badge">PayU</span>
+                        <span class="tech-badge">OnePay</span>
+                        <span class="tech-badge">JWT</span>
+                        <span class="tech-badge">Design Patterns</span>
                     </div>
-                    <div class="projectLink">
-                        <a href="https://github.com/AftabQuadri/Weather-App"><button>GitHub Link</button></a>
-                    </div>
-                </div>
-                <div id="thirdproject" class="insidework ">
-                    <div class="logoAndText">
-                        <div class="projectlogo" id="notes_logo"></div>
-                        <div class="projectText">
-                            <div class="projectTitle">
-                                <h1>Notes App</h1>
-                            </div>
-                            <div class="aboutProject">
-                                <p>The Android app, developed with Android Studio, employs the MVVM architecture and
-                                    integrates the Room library. It enables users to take daily notes efficiently.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="projectLink">
-                        <a href="https://github.com/AftabQuadri/Notes-App"><button>GitHub Link</button></a>
-                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.ohhpro.ohhproservice" class="project-link" target="_blank">
+                        View on Play Store <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-    <hr>
-    <section id="contactSection">
-        <div class="formandcontact">
 
-            <div id="contact">
-
-                <div id="contactinnerdiv" >
-                    <div id="contactinnerdivText">
-                        <h1>Interested in working with me ?<br>
-                            Or just wanna to say "Hello" ?<br>
-                            drop a mail to <br>
-                            <span class="middleName"><a href="mailto:skaftab984@gmail.com">
-                                    skaftab984@gmail.com</a></span>
-                                    <span id="or">Or</span>
-                        </h1>
-                    </div>
-                    <div class="form">
-                        <form>
-                            <input type="text" id="yourName" placeholder="Your Name" class="formEl"><br>
-                            <input type="email" id="yourEmail" placeholder="Your Email" class="formEl"><br>
-                            <textarea name="yourMessage" id="yourMessage" cols="30" rows="10" class="formEl"
-                                placeholder="Enter your message here "></textarea>
-                            <br><button class="formSubmit">Submit</button>
-                        </form>
-                    </div>
+            <div class="project-card">
+                <div class="project-header">
+                    <i class="fas fa-heartbeat"></i>
                 </div>
-
-                <div id="social_links" >
-                    <a href="https://linkedin.com/in/sk-aftab-quadri-3063b8200"><i class="fa-brands fa-linkedin fa-2xl social"
-                            style="color: #63E6BE;"></i></a>
-                    <a href="https://github.com/AftabQuadri"><i class="fa-brands fa-github fa-2xl social"
-                            style="color: #63E6BE;"></i></a>
-                    <a href="https://www.hackerrank.com/profile/Quadriaftab0"><i class="fa-brands fa-hackerrank fa-2xl social"
-                            style="color: #63E6BE;"></i></a>
-                    <a href="https://www.instagram.com/quadri.127/"><i class="fa-brands fa-instagram fa-2xl social"
-                            style="color: #63E6BE;"></i></a>
-                    <a href="https://wa.me/+917735667057"><i class="fa-brands fa-whatsapp fa-2xl social"
-                            style="color: #63E6BE;"></i></a>
+                <div class="project-body">
+                    <h3>NuHealthMantra</h3>
+                    <p>
+                        Healthcare platform with role-based architecture for Admins, Consultants, and Users. 
+                        Implemented JWT authentication, Spring Security, and integrated Firebase Cloud 
+                        Messaging for real-time notifications. Configured API Gateway and Load Balancer 
+                        for high availability. Integrated Razorpay for secure payment processing.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Spring Security</span>
+                        <span class="tech-badge">JWT</span>
+                        <span class="tech-badge">FCM</span>
+                        <span class="tech-badge">Razorpay</span>
+                        <span class="tech-badge">API Gateway</span>
+                        <span class="tech-badge">Load Balancer</span>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.nuhealthmantra.user" class="project-link" target="_blank">
+                        View on Play Store <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-
             </div>
 
+            <div class="project-card">
+                <div class="project-header">
+                    <i class="fas fa-compass"></i>
+                </div>
+                <div class="project-body">
+                    <h3>Carrmos Career Guidance</h3>
+                    <p>
+                        Career guidance platform with OAuth 2.0 and Google Sign-In integration. Built three 
+                        interconnected modules: SES (Self Exploration Survey), Polestar for career matching, 
+                        and Navigator for milestone tracking. Implemented dynamic forms and intelligent 
+                        career path algorithms that match user interests with suitable professions.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">OAuth 2.0</span>
+                        <span class="tech-badge">Google Sign-In</span>
+                        <span class="tech-badge">Spring Boot</span>
+                        <span class="tech-badge">REST APIs</span>
+                        <span class="tech-badge">JWT</span>
+                    </div>
+                    <a href="https://carrmos.com/" class="project-link" target="_blank">
+                        Visit Website <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
 
+           
         </div>
     </section>
 
-    <hr>
-    <div class="footer">
-        <p>© 2024 Made with <span id="heart"> &hearts; </span>  by Aftab All rights reserved</p>
-    </div>
-    <script src="js/index.js">
+    <section id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-subtitle">Let's build something awesome together 🚀</p>
+        
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Let's Connect!</h3>
+                <p>
+                    Whether you want to discuss a project, need a backend wizard for your team, 
+                    or just want to chat about the latest Spring Boot features, I'm always up for 
+                    a good conversation. Coffee's on me (virtually)! ☕
+                </p>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:skaftab984@gmail.com" style="color: inherit; text-decoration: none;">
+                        skaftab984@gmail.com
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 7735667057</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Bhubaneswar, Odisha, India</span>
+                </div>
+                <div class="social-grid">
+                    <a href="https://linkedin.com/in/sk-aftab-quadri-3063b8200" class="social-icon" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/AftabQuadri" class="social-icon" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.hackerrank.com/profile/Quadriaftab0" class="social-icon" target="_blank" title="HackerRank">
+                        <i class="fab fa-hackerrank"></i>
+                    </a>
+                    <a href="https://www.instagram.com/quadri.127/" class="social-icon" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/917735667057" class="social-icon" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-field">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            &copy; 2024 Aftab Quadri. Built with <span class="heart">❤️</span> and way too much coffee. 
+            <br>
+            <small>P.S. - No payment gateways were harmed in the making of this website</small>
+        </p>
+    </footer>
+
+    <script>
+        const navLinks = document.getElementById('navLinks');
+
+        function toggleNav() {
+            navLinks.classList.toggle('active');
+        }
+
+        function closeNav() {
+            navLinks.classList.remove('active');
+        }
+
+        // Close nav when clicking outside
+        document.addEventListener('click', function(e) {
+            const nav = document.querySelector('nav');
+            const toggle = document.querySelector('.mobile-toggle');
+            
+            if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+                closeNav();
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Contact form handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+            
+            const mailtoLink = `mailto:skaftab984@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent('Name: ' + formData.name + '\nEmail: ' + formData.email + '\n\nMessage:\n' + formData.message)}`;
+            window.location.href = mailtoLink;
+            
+            this.reset();
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to cards
+        document.querySelectorAll('.skill-box, .project-card, .about-card').forEach(function(el) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Typing effect
+        const typingText = document.querySelector('.typing-effect');
+        if (typingText) {
+            const words = ['build scalable backends', 'develop microservices', 'integrate payment systems', 'write clean APIs'];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            
+            function type() {
+                const currentWord = words[wordIndex];
+                
+                if (isDeleting) {
+                    typingText.textContent = currentWord.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typingText.textContent = currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+                
+                if (!isDeleting && charIndex === currentWord.length) {
+                    setTimeout(() => isDeleting = true, 2000);
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                }
+                
+                const typingSpeed = isDeleting ? 50 : 100;
+                setTimeout(type, typingSpeed);
+            }
+            
+            type();
+        }
+
+        // Fun console message
+        console.log('%c👋 Hey there, fellow developer!', 'color: #ff6b6b; font-size: 20px; font-weight: bold;');
+        console.log('%cInterested in the code? Check out my GitHub!', 'color: #4ecdc4; font-size: 14px;');
+        console.log('%c🚀 https://github.com/AftabQuadri', 'color: #ffe66d; font-size: 14px;');
     </script>
 </body>
-
 </html>
