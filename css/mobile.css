@@ -1,0 +1,542 @@
+/* Mobile Responsive Styles - Enhanced for Better UX */
+
+/* Tablet Styles (768px and below) */
+@media (max-width: 768px) {
+    /* Navigation */
+    nav {
+        padding: 0.8rem 2%;
+    }
+
+    .mobile-toggle {
+        display: block;
+        background: none;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        padding: 0.6rem 1.2rem;
+        cursor: pointer;
+        font-size: 1.2rem;
+        border-radius: 8px;
+        transition: all 0.3s;
+    }
+
+    .mobile-toggle:hover {
+        background: var(--primary);
+        color: var(--bg);
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        max-width: 350px;
+        height: 70vh;
+        background: var(--bg-light);
+        flex-direction: column;
+        padding: 1rem 1rem;
+        gap: 1rem;
+        transition: right 0.4s ease;
+        border-left: 3px solid var(--primary);
+        border-bottom: 3px solid var(--primary);
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        transition: all 0.3s;
+    }
+
+    .nav-links a:hover {
+        background: rgba(78, 205, 196, 0.1);
+        padding-left: 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 7rem 4% 3rem;
+        min-height: 90vh;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        line-height: 1.3;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    .hero-tag {
+        font-size: 0.9rem;
+        padding: 0.4rem 1.2rem;
+    }
+
+    .cta-group {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .btn {
+        flex: 1;
+        justify-content: center;
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    /* Sections */
+    section {
+        padding: 4rem 4%;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    /* About Grid */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-card {
+        padding: 1.8rem;
+    }
+
+    .about-card h3 {
+        font-size: 1.4rem;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .skill-box {
+        padding: 1.8rem;
+    }
+
+    .skill-box:hover {
+        transform: scale(1.02);
+    }
+
+    .skill-tags {
+        gap: 0.6rem;
+    }
+
+    .tag {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .project-header {
+        height: 150px;
+        font-size: 3rem;
+    }
+
+    .project-body {
+        padding: 1.8rem;
+    }
+
+    .project-body h3 {
+        font-size: 1.3rem;
+    }
+
+    .project-body p {
+        font-size: 0.95rem;
+    }
+
+    /* Contact Section */
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .contact-info h3 {
+        font-size: 1.8rem;
+    }
+
+    .contact-item {
+        font-size: 0.95rem;
+    }
+
+    .contact-item i {
+        font-size: 1.3rem;
+        width: 35px;
+    }
+
+    .social-grid {
+        gap: 0.8rem;
+    }
+
+    .social-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .contact-form {
+        padding: 2rem;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        padding: 0.9rem;
+        font-size: 1rem;
+    }
+
+    /* Fun Fact */
+    .fun-fact {
+        padding: 1.3rem;
+        font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 1.5rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile Styles (480px and below) */
+@media (max-width: 480px) {
+    /* Navigation */
+    nav {
+        padding: 0.8rem 3%;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .mobile-toggle {
+        padding: 0.5rem 1rem;
+        font-size: 1.1rem;
+    }
+
+    .nav-links {
+        width: 65%;
+        padding: 1.5rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 6rem 3% 2.5rem;
+        min-height: 85vh;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-tag {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .cta-group {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 0.85rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    /* Sections */
+    section {
+        padding: 3rem 3%;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .section-title::before,
+    .section-title::after {
+        font-size: 0.9em;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* About Cards */
+    .about-grid {
+        gap: 1.5rem;
+    }
+
+    .about-card {
+        padding: 1.5rem;
+    }
+
+    .about-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .about-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* Skills */
+    .skills-grid {
+        gap: 1.2rem;
+    }
+
+    .skill-box {
+        padding: 1.5rem;
+    }
+
+    .skill-box h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .skill-tags {
+        gap: 0.5rem;
+    }
+
+    .tag {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.7rem;
+    }
+
+    .tag:hover {
+        transform: scale(1.05);
+    }
+
+    /* Projects */
+    .projects-grid {
+        gap: 1.5rem;
+    }
+
+    .project-header {
+        height: 130px;
+        font-size: 2.5rem;
+    }
+
+    .project-body {
+        padding: 1.5rem;
+    }
+
+    .project-body h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .project-body p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1.2rem;
+    }
+
+    .project-tech {
+        gap: 0.4rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .tech-badge {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+    }
+
+    .project-link {
+        font-size: 0.9rem;
+    }
+
+    /* Contact Section */
+    .contact-wrapper {
+        gap: 2rem;
+    }
+
+    .contact-info h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-item {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+        flex-wrap: wrap;
+    }
+
+    .contact-item i {
+        font-size: 1.2rem;
+        width: 30px;
+    }
+
+    .social-grid {
+        gap: 0.7rem;
+        justify-content: center;
+    }
+
+    .social-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .form-field {
+        margin-bottom: 1.2rem;
+    }
+
+    .form-field label {
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    .form-field textarea {
+        min-height: 120px;
+    }
+
+    /* Fun Fact */
+    .fun-fact {
+        padding: 1.2rem;
+        font-size: 0.9rem;
+        margin: 1.5rem 0;
+    }
+
+    /* Footer */
+    footer {
+        padding: 1.2rem;
+    }
+
+    footer p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    footer small {
+        font-size: 0.75rem;
+    }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media (max-width: 360px) {
+    .hero h1 {
+        font-size: 1.7rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .contact-form {
+        padding: 1.2rem;
+    }
+
+    .project-header {
+        height: 110px;
+        font-size: 2rem;
+    }
+}
+
+/* Landscape Mobile Orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 5rem 4% 2rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    nav {
+        padding: 0.6rem 3%;
+    }
+
+    .nav-links {
+        padding: 3rem 1.5rem;
+        gap: 1rem;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    .social-icon,
+    .project-link,
+    .contact-item,
+    .tag {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn:active {
+        transform: scale(0.95);
+    }
+
+    .social-icon:active {
+        transform: scale(0.9);
+    }
+
+    .tag:active {
+        transform: scale(0.95);
+    }
+}
